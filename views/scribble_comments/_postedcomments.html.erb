@@ -1,0 +1,32 @@
+<div id="Comments-<%=scribble.scribble_id%>"> 
+	<br clear="all">
+	<br clear="all"/>
+	<% scribble.posted_comments.each do |comment| %>
+	<div class="commentbox" id="record-17626" align="left">
+		<a href="#" style="float:left"><img src="assets/default_avatar.png" style="float:left; padding-right:9px;" width="40" height="40" border="0" alt=""></a>
+
+		<div class="commentorname" style="float:left">
+			<b>
+				<a href="http://shop.99points.info/wall/Demo/profile.php?id=22554888"><%= comment.commentor %></a>
+			</b>
+			<div class="comment-body-text">
+            <%= comment.body%>
+            </div>
+			<div style=" padding-top:3px;">
+				<label class="label"><%= TimelineBeautify.beauty_time(comment.created_at) %></label>&nbsp;
+				<span id=""><a href=""><i class="icon-thumbs-up"></i></a></span>&nbsp;
+				<span id=""><a href=""><i class="icon-thumbs-down"></i></a></span>&nbsp;
+				<% if current_user.beamer_id == comment.commentor_id %>
+				<a href="" class="comment_delete">Delete</a>
+				<% end %>
+			</div>
+			<div id="ppl_clike_div_17626" style="padding-top:3px;float:left;">&nbsp;
+				<a href=""><span id="">0</span> people</a><span> like it</span>
+			</div>
+		</div>
+		<br clear="all">
+		<br clear="all"/>
+	</div>
+	<% end %>
+</div>
+</br>

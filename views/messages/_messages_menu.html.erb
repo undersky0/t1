@@ -1,0 +1,14 @@
+<% action_arr=
+[
+  ['index','index','Inbox'],
+  ['sent','sent','Sent']
+]%>
+<ul class="nav nav-tabs">
+  <% action_arr.each do |arr| %>
+  <%  matching_actions,action,display_string = arr%>
+  <%  class_name = (matching_actions.split(",").to_a.include?(controller.action_name.downcase)==true)? 'active' : 'plain'%>
+  <li class=<%=class_name%>>
+    <%= link_to "#{display_string}" , eval("#{action}_messages_path")%>
+  </li>
+  <% end %>
+  </ul>

@@ -1,0 +1,9 @@
+      <div id="Comment-<%= scribble.scribble_id %>" class="comment">
+        <%= form_for([scribble, scribble.posted_comments.build]) do |f| %>
+          <%= f.text_field :body,:placeholder=>"What do you think #{current_user.first_name}?",:maxlength=>"160" %>
+          <%= hidden_field_tag :scribble_id_val, scribble.scribble_id %>
+          <%= hidden_field_tag :commentor_id_val,current_user.beamer_id %>
+          <br clear="all">
+          <%= f.submit "Add Comment", :class=>"btn btn-inverse"%>
+        <% end %>
+      </div>
